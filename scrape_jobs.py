@@ -40,8 +40,8 @@ def on_end():
 
 
 # Write CSV file with starting header
-if not os.path.isfile("jobs.csv"):
-    with open("jobs.csv", "w", newline="") as file:
+if not os.path.isfile("scrape_jobs.csv"):
+    with open("scrape_jobs.csv", "w", newline="") as file:
         writer = csv.writer(file)
         writer.writerow(["Query", "Title", "Company", "Company_Link", "Date", "Link", "Insights"])
 

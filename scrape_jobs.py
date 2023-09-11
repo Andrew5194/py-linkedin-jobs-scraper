@@ -21,7 +21,7 @@ def on_data(data: EventData):
     jobs_list = [data.query, data.title, data.company, data.company_link, data.date, data.link, data.insights]
     print(jobs_list)
 
-    with open("jobs.csv", "a", newline="") as file:
+    with open("scrape_jobs.csv", "a", newline="") as file:
         writer = csv.writer(file)
         writer.writerow(jobs_list)
 

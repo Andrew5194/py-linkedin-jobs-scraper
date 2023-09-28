@@ -1,3 +1,10 @@
+# Andrew5194's Changes
+
+I added the following modifications from the forked repo: [https://github.com/spinlud/py-linkedin-jobs-scraper](https://github.com/spinlud/py-linkedin-jobs-scraper).
+
+- [X] Output to CSV
+- [ ] De-duplication of data
+
 # linkedin-jobs-scraper
 > Scrape public available jobs on Linkedin using headless browser. 
 > For each job, the following fields are extracted: 

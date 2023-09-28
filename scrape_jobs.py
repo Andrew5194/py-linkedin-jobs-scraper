@@ -11,6 +11,7 @@ from linkedin_jobs_scraper.filters import (
 )
 import csv
 import os
+import pandas as pd
 
 # Change root logger level (default is WARN)
 logging.basicConfig(level=logging.INFO)
@@ -20,6 +21,8 @@ logging.basicConfig(level=logging.INFO)
 def on_data(data: EventData):
     jobs_list = [data.query, data.title, data.company, data.company_link, data.date, data.link, data.insights]
     print(jobs_list)
+
+    # df = pd.DataFrame()
 
     with open("scrape_jobs.csv", "a", newline="") as file:
         writer = csv.writer(file)
@@ -61,7 +64,7 @@ scraper.on(Events.END, on_end)
 
 queries = [
     Query(
-        query="DevOps Engineer",
+        query="Sales Engineer",
         options=QueryOptions(
             locations=["Remote"],
             apply_link=False,  # Try to extract apply link (easy applies are skipped). If set to True, scraping is slower because an additional page mus be navigated. Default to False.
@@ -71,10 +74,10 @@ queries = [
             filters=QueryFilters(
                 # company_jobs_url='https://www.linkedin.com/jobs/search/?f_C=1441%2C17876832%2C791962%2C2374003%2C18950635%2C16140%2C10440912&geoId=92000000',  # Filter by companies.
                 relevance=RelevanceFilters.RECENT,
-                time=TimeFilters.MONTH,
+                time=TimeFilters.WEEK,
                 type=[TypeFilters.FULL_TIME],
                 on_site_or_remote=[OnSiteOrRemoteFilters.REMOTE],
-                experience=[ExperienceLevelFilters.MID_SENIOR],
+                experience=[ExperienceLevelFilters.ENTRY_LEVEL],
             ),
         ),
     ),

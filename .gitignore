@@ -3,7 +3,7 @@
 **/dist
 **/tmp
 **/tests/*.txt
-scrape_jobs.csv
+scrape_jobs*.csv
 
 
 # Created by https://www.toptal.com/developers/gitignore/api/macos,python,pycharm,node

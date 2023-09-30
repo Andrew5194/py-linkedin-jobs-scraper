@@ -4,6 +4,7 @@
 **/tmp
 **/tests/*.txt
 scrape_jobs*.csv
+service_account.json
 
 
 # Created by https://www.toptal.com/developers/gitignore/api/macos,python,pycharm,node

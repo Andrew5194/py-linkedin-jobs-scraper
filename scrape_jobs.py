@@ -13,6 +13,10 @@ import csv
 import os
 import pandas as pd
 
+import gspread
+from oauth2client.service_account import ServiceAccountCredentials
+
+
 # Change root logger level (default is WARN)
 logging.basicConfig(level=logging.INFO)
 
@@ -83,4 +87,12 @@ queries = [
     ),
 ]
 
-scraper.run(queries)
+# scraper.run(queries)
+
+gc = gspread.service_account(filename='service_account.json')
+
+spreadsheet = gc.open("gspread")
+
+with open('scrape_jobs.csv', 'r') as file_obj:
+    content = file_obj.read()
+    gc.import_csv(spreadsheet.id, data=content)
